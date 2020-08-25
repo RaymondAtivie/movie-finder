@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div class="flex flex-col justify-between min-h-screen">
+    <navbar />
     <Nuxt />
+    <page-footer />
   </div>
 </template>
 
