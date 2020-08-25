@@ -1,11 +1,11 @@
 <template>
   <div>
-    <img src />
+    <img :src="movie.posterUrl" />
     <h4>
       {{ movie.title }} &middot;
-      <span>{{ movie.year }}</span>
+      <span>{{ movie.release }}</span>
     </h4>
-    <p>{{ movie.director }}</p>
+    <!-- <p>{{ movie.director }}</p> -->
   </div>
 </template>
 

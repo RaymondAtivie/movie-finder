@@ -4,17 +4,25 @@ class Movie {
     public title: string,
     public poster: string,
     public director: string,
-    public year: number,
+    public release: string,
   ) { }
+
+  get posterUrl() {
+    return "https://image.tmdb.org/t/p/w500" + this.poster;
+  }
 
   static fromJson(json: any): Movie {
     return new Movie(
       json.id,
-      json.title,
-      json.poster,
-      json.director,
-      json.year,
+      json.original_title,
+      json.poster_path,
+      json.overview,
+      json.release_date,
     );
+  }
+
+  static fromArray(arr: any[]): Movie[] {
+    return arr.map(json => Movie.fromJson(json));
   }
 
 }
