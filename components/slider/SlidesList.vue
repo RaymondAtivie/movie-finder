@@ -41,7 +41,6 @@ export default class SlideList extends Vue {
   }
 
   prev() {
-    console.log("prev")
     if (this.slideIndex == 0) return
 
     const newIndex = this.slideIndex - 1

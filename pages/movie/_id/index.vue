@@ -72,21 +72,12 @@ export default class MoviePage extends Vue {
   movie: Movie | null = null
 
   async loadMovie(movie_id: string) {
-    console.log('loading movie')
     const movie = await this.$store.dispatch('movies/getMovie', movie_id)
-
-    console.log(movie)
-
     this.movie = movie
-
-    console.log(this.movie?.title)
   }
 
   mounted() {
     const params = this.$route.params
-
-    console.log(params)
-
     this.loadMovie(params.id)
   }
 }

@@ -17,18 +17,12 @@
       </div>
 
       <div
-        style="top: 10px; right: 10px"
-        class="absolute inline-flex items-center justify-center px-1 text-sm font-medium text-white rounded-md"
-        :class="movie.rating <= 7 ? 'bg-red-600' : 'bg-green-600'"
-      >{{ (movie.rating).toFixed(1) }}</div>
-      <div
         style="bottom: 10px; right: 10px"
-        class="absolute inline-flex items-center justify-center px-1 text-sm font-medium text-white bg-gray-700 rounded-md"
+        class="absolute inline-flex items-center justify-center px-2 text-xs font-medium text-white bg-gray-700 rounded-md"
       >{{ movie.year }}</div>
     </div>
     <h4 class="pr-2 mt-2 text-base text-left text-white md:text-lg">{{ movie.title }}</h4>
     <rating-stars :rating="movie.rating" />
-    <!-- <p>{{ movie.director }}</p> -->
   </div>
 </template>
 

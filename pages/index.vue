@@ -5,7 +5,7 @@
       <search-bar />
     </div>
 
-    <div class="mt-20">
+    <div class="mt-64">
       <h2
         class="ml-2 text-xl text-left text-white md:text-4xl md:text-center"
       >Popular Movies right now</h2>

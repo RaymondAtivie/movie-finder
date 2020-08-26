@@ -35,17 +35,13 @@ export const getters: GetterTree<NotificationState, RootState> = {
 export const mutations: MutationTree<NotificationState> = {
   LOAD_MOVIES: (state, movies: Movie[]) => {
 
-
-    let count = 0;
     movies.forEach(movie => {
       if (!state.movieMap.includes(movie.id)) {
         state.movieMap.push(movie.id);
         state.allMovies.push(movie);
-        count++;
       }
     })
 
-    console.log("added " + count + " movies for search");
   },
   UPDATE_AUTO_COMPLETE: (state, movies: Movie[]) => {
     state.autoCompleteMovies = movies;
@@ -91,8 +87,6 @@ export const actions: ActionTree<NotificationState, RootState> = {
 
       this.$axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=9099d4a456925cc52c8aed25ab61ba4e`)
         .then((response) => {
-          console.log(response.data);
-
           resolve(Movie.fromJson(response.data))
         });
 
