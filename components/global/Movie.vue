@@ -1,15 +1,18 @@
 <template>
-  <div
-    tabindex="0"
-    class="mb-10 transition-transform duration-300 transform cursor-pointer focus:scale-105 hover:scale-105 focus:outline-none"
-  >
-    <div class="relative w-full bg-gray-700 rounded-md" style="height: 300px">
+  <div tabindex="0" class="mb-10 cursor-pointer focus:scale-105 focus:outline-none">
+    <div
+      class="relative w-full transition-transform duration-300 transform bg-gray-700 rounded-md focus:scale-105 hover:scale-105"
+      style="height: 300px"
+    >
       <img
         :src="movie.posterUrl"
-        class="bottom-0 object-cover w-full h-full rounded-md"
+        class="bottom-0 object-cover w-full h-full rounded-sm shadow-md"
         v-if="movie.posterUrl"
       />
-      <div v-else class="flex items-center justify-center w-full h-full text-white bg-red-900 rounded-md">
+      <div
+        v-else
+        class="flex items-center justify-center w-full h-full text-white bg-red-900 rounded-md"
+      >
         <div class="uppercase">No Image</div>
       </div>
 
@@ -23,7 +26,8 @@
         class="absolute inline-flex items-center justify-center px-1 text-sm font-medium text-white bg-gray-700 rounded-md"
       >{{ movie.year }}</div>
     </div>
-    <h4 class="px-2 mt-4 text-xl text-center">{{ movie.title }}</h4>
+    <h4 class="pr-2 mt-2 text-lg text-left text-white">{{ movie.title }}</h4>
+    <rating-stars :rating="movie.rating" />
     <!-- <p>{{ movie.director }}</p> -->
   </div>
 </template>

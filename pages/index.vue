@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
     <div class="self-stretch px-20 mt-20 text-center">
-      <logo class="mx-auto mb-4" />
+      <logo white class="mx-auto mb-4" />
       <search-bar />
     </div>
 
     <div class="mt-20">
-      <h2 class="ml-2 text-4xl text-center">Popular Movies</h2>
+      <h2 class="ml-2 text-4xl text-center text-white">Popular Movies right now</h2>
       <div class="flex flex-wrap w-full mt-6">
         <a
           :href="`/movie/${movie.id}`"
