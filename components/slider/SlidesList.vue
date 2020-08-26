@@ -1,11 +1,11 @@
 <template>
   <div class="relative">
-    <div class="overflow-hidden" ref="slideBox" style="height: 400px">
-      <ul class="flex ml-3">
+    <div class="flex items-center py-5 overflow-hidden" ref="slideBox">
+      <ul class="flex items-center ml-3">
         <li
           v-for="movie in movies"
           :key="movie.id"
-          class="pr-8 transition-transform duration-1000 ease-out"
+          class="pr-8 transition-transform duration-1000 ease-in-out"
           :style="listPosition"
         >
           <slide :movie="movie" />
@@ -13,37 +13,34 @@
       </ul>
     </div>
 
-    <div
-      class="absolute left-0 right-0 justify-between hidden mt-10 bg-blue-300 bg-opacity-0 md:flex"
-      style="top: 20%; right: -20px; left: -10px"
+    <button
+      class="absolute left-0 items-center justify-center hidden w-12 h-12 text-white bg-red-800 rounded-full md:flex focus:outline-none"
+      style="top: 30%;"
+      @click="prev()"
     >
-      <button
-        class="flex items-center justify-center w-12 h-12 text-white bg-red-800 rounded-full focus:outline-none"
-        @click="prev()"
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-6 h-6 text-white transform rotate-180 chevron-right"
       >
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          class="w-6 h-6 text-white transform rotate-180 chevron-right"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-      <button
-        class="flex items-center justify-center w-12 h-12 text-white bg-red-800 rounded-full focus:outline-none"
-        @click="next()"
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+    <button
+      class="absolute right-0 items-center justify-center hidden w-12 h-12 text-white bg-red-800 rounded-full md:flex focus:outline-none"
+      style="top: 30%;"
+      @click="next()"
+    >
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="w-6 h-6 text-white chevron-right"
       >
-        <svg
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          class="w-6 h-6 text-white chevron-right"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -97,6 +94,7 @@ export default class SlideList extends Vue {
   }
   touchEnd() {
     if (!this.touchEnd) return
+    if (Math.abs(this.touch.endX - this.touch.startX) < 30) return
 
     if (this.touch.endX < this.touch.startX) {
       this.next()

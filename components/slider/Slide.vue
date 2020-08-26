@@ -1,8 +1,8 @@
 <template>
-  <div tabindex="0" class="mb-10 cursor-pointer focus:scale-105 focus:outline-none">
+  <nuxt-link :to="`/movie/${movie.id}`" class="cursor-pointer focus:scale-105 focus:outline-none">
     <div
-      class="relative transition-transform duration-300 transform bg-gray-700 rounded-md"
-      style="width: 210px"
+      class="relative transition-transform duration-300 transform bg-gray-700 rounded-md hover:scale-105"
+      style="height: 330px; width: 220px"
     >
       <img
         :src="movie.posterUrl"
@@ -24,7 +24,7 @@
       style="bottom: 10px; right: 10px"
       class="inline-flex items-center justify-center px-2 text-xs font-medium text-white bg-red-500 rounded-md"
     >{{ movie.year }}</div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script lang="ts">
