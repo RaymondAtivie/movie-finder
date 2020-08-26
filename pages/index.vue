@@ -1,11 +1,13 @@
 <template>
   <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
     <div class="self-stretch px-4 mt-16 text-center md:mt-20 md:px-20">
-      <logo white class="w-32 mx-auto mb-4 md:w-auto" />
-      <search-bar />
+      <logo white class="w-32 mx-auto md:w-auto" />
+      <p class="text-dark-100">Find your favorite movies</p>
+
+      <search-bar class="mt-4" />
     </div>
 
-    <div class="mt-64">
+    <div class="mt-56">
       <h2
         class="ml-2 text-xl text-left text-white md:text-4xl md:text-center"
       >Popular Movies right now</h2>

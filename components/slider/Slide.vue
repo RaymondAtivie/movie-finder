@@ -1,10 +1,29 @@
 <template>
-  <div class="relative w-full bg-black" style="height: 450px">
-    <img :src="movie.posterUrl" class="object-contain w-full h-full" />
-    <div class="absolute bottom-0 w-full p-4 text-white bg-black bg-opacity-75">
-      <div>{{ movie.title }}</div>
-      <div>{{ movie.year }}</div>
+  <div tabindex="0" class="mb-10 cursor-pointer focus:scale-105 focus:outline-none">
+    <div
+      class="relative transition-transform duration-300 transform bg-gray-700 rounded-md"
+      style="width: 210px"
+    >
+      <img
+        :src="movie.posterUrl"
+        class="bottom-0 object-cover w-full h-full rounded-sm shadow-md"
+        v-if="movie.posterUrl"
+      />
+      <div
+        v-else
+        class="flex items-center justify-center w-full h-full text-white bg-red-900 rounded-md"
+      >
+        <div class="uppercase">No Image</div>
+      </div>
     </div>
+    <h4
+      class="w-48 pr-2 mt-2 text-base text-left text-white truncate md:text-base"
+    >{{ movie.title }}</h4>
+    <rating-stars :rating="movie.rating" />
+    <div
+      style="bottom: 10px; right: 10px"
+      class="inline-flex items-center justify-center px-2 text-xs font-medium text-white bg-red-500 rounded-md"
+    >{{ movie.year }}</div>
   </div>
 </template>
 

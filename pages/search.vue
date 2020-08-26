@@ -11,12 +11,12 @@
       <search-bar :initial="searchTerm" />
     </div>
 
-    <div class="w-full mt-10">
+    <div class="w-full mt-20 mb-64">
       <div>
-        <!-- <slides-list /> -->
+        <slides-list :movies="filteredMovies" />
       </div>
 
-      <div class="flex flex-wrap w-full mt-10">
+      <!-- <div class="flex flex-wrap w-full mt-10">
         <nuxt-link
           tabindex="-1"
           :to="`/movie/${movie.id}`"
@@ -26,7 +26,7 @@
         >
           <movie :movie="movie" />
         </nuxt-link>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
