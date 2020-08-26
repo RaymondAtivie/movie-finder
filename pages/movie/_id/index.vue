@@ -5,7 +5,7 @@
       style="height: 500px"
       v-if="movie"
     >
-      <img :src="movie.backdropUrl" class="object-cover w-full h-full" />
+      <img :src="movie.backdropUrl" v-if="movie.backdropUrl" class="object-cover w-full h-full" />
       <div class="absolute inset-0 flex items-center justify-center w-full h-full">
         <div
           class="flex items-center justify-center w-20 h-20 mx-auto bg-red-600 rounded-full cursor-pointer"

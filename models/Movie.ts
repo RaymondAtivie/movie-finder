@@ -16,7 +16,7 @@ class Movie {
     return null
   }
   get backdropUrl(): string | null {
-    if (this.poster)
+    if (this.backdrop)
       return "https://image.tmdb.org/t/p/w1280" + this.backdrop;
 
     return null
