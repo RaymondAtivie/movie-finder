@@ -1,19 +1,19 @@
 <template>
-  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
-    <div class="flex flex-wrap items-center justify-between w-full px-4 pt-10 md:flex-no-wrap">
-      <div class="w-full md:w-6/12 md:order-1">
-        <search-bar :initial="searchTerm" />
+  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-dark-500">
+    <div class="w-full">
+      <div class="text-dark-200">
+        Search Results &middot; {{ filteredMovies.length }}
+        <span
+          v-if="filteredMovies.length > 1"
+        >Results</span>
+        <span v-else>Result</span>
       </div>
-
-      <div class="flex flex-col flex-1 w-full mt-5 md:pr-6">
-        <div>Search Results for</div>
-        <h2 class="text-4xl leading-none">{{ searchTerm }}</h2>
-      </div>
+      <search-bar :initial="searchTerm" />
     </div>
 
     <div class="w-full mt-10">
       <div>
-        <slides-list />
+        <!-- <slides-list /> -->
       </div>
 
       <div class="flex flex-wrap w-full px-4 mt-10">
@@ -49,6 +49,7 @@ export default class IndexPage extends Vue {
 
     if (params.keyword) {
       this.$store.dispatch('movies/search', params.keyword)
+      this.$store.commit('movies/UPDATE_SEARCH_QUERY', params.keyword)
     }
   }
 }

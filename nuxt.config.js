@@ -35,7 +35,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '@/plugins/debounce.js'
+    '@/plugins/debounce.js',
   ],
   /*
   ** Auto import components

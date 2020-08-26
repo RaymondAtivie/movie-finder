@@ -3,14 +3,21 @@ class Movie {
     public id: number,
     public title: string,
     public poster: string,
-    public director: string,
+    public overview: string,
     public release: string,
-    public rating: number
+    public rating: number,
+    public backdrop: string,
   ) { }
 
   get posterUrl(): string | null {
     if (this.poster)
       return "https://image.tmdb.org/t/p/w500" + this.poster;
+
+    return null
+  }
+  get backdropUrl(): string | null {
+    if (this.poster)
+      return "https://image.tmdb.org/t/p/w1280" + this.backdrop;
 
     return null
   }
@@ -33,6 +40,7 @@ class Movie {
       json.overview,
       json.release_date,
       json.vote_average,
+      json.backdrop_path,
     );
   }
 

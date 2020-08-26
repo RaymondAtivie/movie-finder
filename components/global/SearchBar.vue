@@ -3,9 +3,29 @@
     <div
       @click="showDropdown = false"
       v-if="showDropdown"
-      class="fixed inset-0 z-40 w-full h-full bg-opacity-50"
+      class="fixed inset-0 z-30 w-full h-full bg-opacity-50"
     ></div>
+
     <form
+      @submit.prevent="gotoSearchPage"
+      class="flex items-center justify-between w-full pb-2 border-b-2 border-dark-200"
+    >
+      <input
+        class="relative z-50 w-full text-4xl leading-none text-white bg-transparent focus:outline-none placeholder-dark-200"
+        placeholder="Search... "
+        @focus="showDropdown = true"
+        v-model="searchQuery"
+        @input="debounceSearch"
+      />
+      <svg class="w-10 h-10 text-dark-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M15.333.333c8.28 0 15 6.72 15 15 0 8.28-6.72 15-15 15-8.28 0-15-6.72-15-15 0-8.28 6.72-15 15-15zm0 26.667C21.778 27 27 21.778 27 15.333c0-6.446-5.222-11.666-11.667-11.666-6.446 0-11.666 5.22-11.666 11.666C3.667 21.778 8.887 27 15.333 27zm14.142.118l4.715 4.714-2.358 2.358-4.714-4.715 2.357-2.357z"
+          fill="currentColor"
+        />
+      </svg>
+    </form>
+
+    <!-- <form
       @submit.prevent="gotoSearchPage"
       class="relative z-50 flex transition-all duration-150 ease-out transform rounded-sm"
       :class="showDropdown ? 'shadow-lg' : ''"
@@ -21,17 +41,17 @@
         type="submit"
         class="h-16 px-8 text-lg font-bold text-white bg-red-500 rounded-r-lg"
       >Search</button>
-    </form>
+    </form>-->
 
     <div
-      v-if="showDropdown && filteredMovies.length > 0"
+      v-if="showDropdown && autoCompleteMovies.length > 0"
       style="max-height: 20rem"
       class="absolute left-0 right-0 z-40 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
     >
       <a
         :href="`/movie/${movie.id}`"
         class="border-b cursor-pointer hover:bg-red-100"
-        v-for="movie in filteredMovies"
+        v-for="movie in autoCompleteMovies"
         :key="movie.id"
       >
         <search-item :movie="movie"></search-item>
@@ -56,23 +76,26 @@ export default class SearchBar extends Vue {
   showDropdown: boolean = false
 
   @moviesStore.Getter
-  public filteredMovies!: Movie[]
+  public autoCompleteMovies!: Movie[]
 
   debounceSearch = debounce(() => {
     this.search()
   }, 500)
 
   search() {
-    window.history.replaceState(
-      null,
-      document.title,
-      `?keyword=${this.searchQuery}`
-    )
+    // window.history.replaceState(
+    //   null,
+    //   document.title,
+    //   `?keyword=${this.searchQuery}`
+    // )
     this.$store.dispatch('movies/search', this.searchQuery)
   }
 
   gotoSearchPage() {
+    this.showDropdown = false
+    this.$store.commit('movies/UPDATE_SEARCH_QUERY', this.searchQuery)
     this.search()
+
     this.$router.push(`/search?keyword=${this.searchQuery}`)
   }
 

@@ -1,5 +1,5 @@
 <template>
-  <div tabindex="0" class="flex items-center px-3 py-3 focus:outline-none focus:bg-red-100">
+  <div tabindex="0" class="flex items-center px-3 py-3 border-b focus:outline-none focus:bg-red-100">
     <div class="w-10 mr-3 overflow-hidden bg-black rounded-md h-14">
       <img v-if="movie.thumbnailUrl" class="object-cover w-full h-full" :src="movie.thumbnailUrl" />
       <div

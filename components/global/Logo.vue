@@ -6,6 +6,6 @@
 import { Vue, Component, Prop } from 'nuxt-property-decorator'
 @Component
 export default class Logo extends Vue {
-  @Prop({ default: false }) white!: boolean
+  @Prop({ default: false, type: Boolean }) white!: boolean
 }
 </script>
