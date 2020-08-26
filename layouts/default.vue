@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-between min-h-screen bg-gray-100">
     <navbar />
     <Nuxt />
-    <page-footer />
+    <page-footer class="mt-20" />
   </div>
 </template>
 

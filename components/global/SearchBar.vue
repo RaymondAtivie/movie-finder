@@ -28,13 +28,14 @@
       style="max-height: 20rem"
       class="absolute left-0 right-0 z-40 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
     >
-      <div
+      <a
+        :href="`/movie/${movie.id}`"
         class="border-b cursor-pointer hover:bg-red-100"
         v-for="movie in filteredMovies"
         :key="movie.id"
       >
         <search-item :movie="movie"></search-item>
-      </div>
+      </a>
     </div>
   </div>
 </template>

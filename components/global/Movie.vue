@@ -3,8 +3,16 @@
     tabindex="0"
     class="mb-10 transition-transform duration-300 transform cursor-pointer focus:scale-105 hover:scale-105 focus:outline-none"
   >
-    <div class="relative w-full bg-black rounded-md" style="height: 300px">
-      <img :src="movie.posterUrl" class="bottom-0 object-cover w-full h-full rounded-md" />
+    <div class="relative w-full bg-gray-700 rounded-md" style="height: 300px">
+      <img
+        :src="movie.posterUrl"
+        class="bottom-0 object-cover w-full h-full rounded-md"
+        v-if="movie.posterUrl"
+      />
+      <div v-else class="flex items-center justify-center w-full h-full text-white bg-red-900 rounded-md">
+        <div class="uppercase">No Image</div>
+      </div>
+
       <div
         style="top: 10px; right: 10px"
         class="absolute inline-flex items-center justify-center px-1 text-sm font-medium text-white rounded-md"

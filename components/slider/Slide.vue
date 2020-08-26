@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-black" style="width: 300px; height: 450px">
+  <div class="relative w-full bg-black" style="height: 450px">
     <img :src="movie.posterUrl" class="object-contain w-full h-full" />
     <div class="absolute bottom-0 w-full p-4 text-white bg-black bg-opacity-75">
       <div>{{ movie.title }}</div>

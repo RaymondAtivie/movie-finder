@@ -1,5 +1,5 @@
 <template>
-  <div class="px-12 overflow-x-hidden bg-red-200">
+  <div class="px-12 overflow-x-hidden">
     <ul class="flex" :style="listWidth">
       <li
         class="px-2 duration-200 ease-in-out translate-transform"
@@ -11,9 +11,9 @@
       </li>
     </ul>
 
-    <div class="flex justify-between">
-      <button @click="prev()">Prev</button>
-      <button @click="next()">Next</button>
+    <div class="flex justify-between mt-10">
+      <button class="px-4 py-1 text-white bg-red-700" @click="prev()">Prev</button>
+      <button class="px-4 py-1 text-white bg-red-700" @click="next()">Next</button>
     </div>
   </div>
 </template>
@@ -41,6 +41,7 @@ export default class SlideList extends Vue {
   }
 
   prev() {
+    console.log("prev")
     if (this.slideIndex == 0) return
 
     const newIndex = this.slideIndex - 1
