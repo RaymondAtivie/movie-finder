@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-screen-lg mx-auto flex flex-col items-center w-full bg-purple-300 flex-1">
+  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-purple-300">
     <search-bar class="mt-40" />
 
     <div class="mt-10">

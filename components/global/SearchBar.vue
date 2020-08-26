@@ -1,9 +1,9 @@
 <template>
   <div class="relative">
-    {{ filteredMovies.length }} {{ searchQuery }}
-    <form class="flex" @submit.prevent>
+    <form class="flex" @submit.prevent="gotoSearchPage">
       <input
         @focus="showDropdown = true"
+        @blur="showDropdown = false"
         class="w-64 px-2 py-4 border-2"
         placeholder="Search"
         v-model="searchQuery"
@@ -48,8 +48,12 @@ export default class SearchBar extends Vue {
   }, 500)
 
   search() {
-    console.log('Now searching')
     this.$store.dispatch('movies/search', this.searchQuery)
+  }
+
+  gotoSearchPage() {
+    this.search()
+    this.$router.push(`/search?keyword=${this.searchQuery}`)
   }
 }
 </script>

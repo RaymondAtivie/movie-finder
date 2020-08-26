@@ -7,11 +7,17 @@ class Movie {
     public release: string,
   ) { }
 
-  get posterUrl() {
-    return "https://image.tmdb.org/t/p/w500" + this.poster;
+  get posterUrl(): string | null {
+    if (this.poster)
+      return "https://image.tmdb.org/t/p/w500" + this.poster;
+
+    return null
   }
-  get thumbnailUrl() {
-    return "https://image.tmdb.org/t/p/w92" + this.poster;
+  get thumbnailUrl(): string | null {
+    if (this.poster)
+      return "https://image.tmdb.org/t/p/w92" + this.poster;
+
+    return null;
   }
 
   static fromJson(json: any): Movie {

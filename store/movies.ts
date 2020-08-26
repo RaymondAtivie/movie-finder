@@ -5,7 +5,7 @@ import { RootState } from '.'
 export const state = () => ({
   allMovies: [] as Movie[],
   popularMovies: [] as Movie[],
-  searchQuery: "" as string,
+  query: "" as string,
 })
 
 export type NotificationState = ReturnType<typeof state>
@@ -13,7 +13,8 @@ export type NotificationState = ReturnType<typeof state>
 export const getters: GetterTree<NotificationState, RootState> = {
   movies: state => state.allMovies,
   popularMovies: state => state.popularMovies,
-  filteredMovies: state => state.allMovies.filter(movie => movie.title.toLowerCase().includes(state.searchQuery.toLowerCase())),
+  filteredMovies: state => state.allMovies.filter(movie => movie.title.toLowerCase().includes(state.query.toLowerCase())),
+  searchTerm:  state => state.query
 }
 
 export const mutations: MutationTree<NotificationState> = {
@@ -24,7 +25,7 @@ export const mutations: MutationTree<NotificationState> = {
     state.popularMovies = movies;
   },
   UPDATE_SEARCH_QUERY: (state, query: string) => {
-    state.searchQuery = query;
+    state.query = query;
   },
 }
 export const actions: ActionTree<NotificationState, RootState> = {
