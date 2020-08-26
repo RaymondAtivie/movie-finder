@@ -1,18 +1,26 @@
 <template>
-  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
-    <div class="flex flex-col items-center justify-between w-full px-4 pt-10" v-if="movie">
-      <div class="w-full overflow-hidden" style="height: 500px">
-        <img :src="movie.backdropUrl" class="object-cover w-full h-full" />
-      </div>
-      <div class="flex items-end mx-10 -mt-32">
-        <div class="flex-shrink-0 w-1/3">
-          <img :src="movie.posterUrl" />
-        </div>
-        <div class="w-2/3 pl-8">
-          <h1>{{ movie.title}}</h1>
-          <h1>{{ movie.release}}</h1>
-          <h1>{{ movie.overview}}</h1>
-          <h1>{{ movie.rating}}</h1>
+  <div>
+    <div class="w-full max-w-screen-xl mx-auto overflow-hidden bg-dark-100" style="height: 500px" v-if="movie">
+      <img :src="movie.backdropUrl" class="object-cover w-full h-full" />
+    </div>
+    <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
+      <div class="flex flex-col items-center justify-between w-full px-4" v-if="movie">
+        <div class="flex items-start mx-10">
+          <div class="flex-shrink-0 w-1/3">
+            <img class="-mt-32 rounded-sm" :src="movie.posterUrl" />
+          </div>
+
+          <div class="w-2/3 pt-8 pl-8">
+            <h1 class="text-3xl leading-none text-white">{{ movie.title}}</h1>
+
+            <div class="flex mt-3 text-dark-100">
+              <rating-stars :rating="movie.rating" />
+              <div class="mx-4">&bullet;</div>
+              <div>{{ movie.year }}</div>
+            </div>
+
+            <p class="mt-3 text-dark-100">{{ movie.overview}}</p>
+          </div>
         </div>
       </div>
     </div>

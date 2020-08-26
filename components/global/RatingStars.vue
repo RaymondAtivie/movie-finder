@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex items-center">
     <svg
       class="w-5 h-5 text-red-600 star"
       v-for="(item, index) in rate5"

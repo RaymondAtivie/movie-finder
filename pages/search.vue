@@ -45,7 +45,7 @@ export default class IndexPage extends Vue {
   @moviesStore.Getter
   public searchTerm!: string
 
-  mounted() {
+  created() {
     const params = this.$route.query
 
     if (params.keyword) {

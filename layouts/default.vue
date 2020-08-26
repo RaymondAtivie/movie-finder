@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-between min-h-screen bg-dark-500">
     <navbar />
-    <Nuxt class="pt-32" />
+    <Nuxt style="padding-top: 104px" />
     <page-footer class="mt-20" />
   </div>
 </template>

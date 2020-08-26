@@ -25,24 +25,6 @@
       </svg>
     </form>
 
-    <!-- <form
-      @submit.prevent="gotoSearchPage"
-      class="relative z-50 flex transition-all duration-150 ease-out transform rounded-sm"
-      :class="showDropdown ? 'shadow-lg' : ''"
-    >
-      <input
-        @focus="showDropdown = true"
-        class="w-full px-6 py-4 border-t border-b border-l rounded-l-lg focus:outline-none"
-        placeholder="Search for movies by thier title"
-        v-model="searchQuery"
-        @input="debounceSearch"
-      />
-      <button
-        type="submit"
-        class="h-16 px-8 text-lg font-bold text-white bg-red-500 rounded-r-lg"
-      >Search</button>
-    </form>-->
-
     <div
       v-if="showDropdown && autoCompleteMovies.length > 0"
       style="max-height: 20rem"
@@ -83,11 +65,6 @@ export default class SearchBar extends Vue {
   }, 500)
 
   search() {
-    // window.history.replaceState(
-    //   null,
-    //   document.title,
-    //   `?keyword=${this.searchQuery}`
-    // )
     this.$store.dispatch('movies/search', this.searchQuery)
   }
 
