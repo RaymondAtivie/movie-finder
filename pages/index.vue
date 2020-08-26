@@ -11,10 +11,11 @@
       <h2
         class="ml-2 text-xl text-left text-white md:text-4xl md:text-center"
       >Popular Movies right now</h2>
+
       <div class="flex flex-wrap w-full mt-6">
         <nuxt-link
           :to="`/movie/${movie.id}`"
-          class="w-1/2 px-1 md:w-1/4 md:px-3"
+          class="w-1/2 px-1 mb-10 md:w-1/4 md:px-3"
           v-for="(movie, index) in popularMovies"
           :key="index"
         >

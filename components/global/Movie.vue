@@ -1,5 +1,5 @@
 <template>
-  <div tabindex="0" class="mb-10 cursor-pointer focus:scale-105 focus:outline-none">
+  <div class="cursor-pointer focus:scale-105 focus:outline-none">
     <div
       class="relative w-full transition-transform duration-300 transform bg-gray-700 rounded-md focus:scale-105 hover:scale-105"
       style="height: 300px"

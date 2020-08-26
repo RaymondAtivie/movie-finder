@@ -15,7 +15,6 @@
 
     <button
       class="absolute left-0 items-center justify-center hidden w-12 h-12 text-white bg-red-800 rounded-full md:flex focus:outline-none"
-      style="top: 30%;"
       @click="prev()"
     >
       <svg
@@ -29,7 +28,6 @@
     </button>
     <button
       class="absolute right-0 items-center justify-center hidden w-12 h-12 text-white bg-red-800 rounded-full md:flex focus:outline-none"
-      style="top: 30%;"
       @click="next()"
     >
       <svg

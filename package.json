@@ -13,6 +13,7 @@
     "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/toast": "^3.3.1",
     "@types/lodash.debounce": "^4.0.6",
     "lodash.debounce": "^4.0.8",
     "nuxt": "^2.14.0",

@@ -2,7 +2,7 @@
   <nuxt-link :to="`/movie/${movie.id}`" class="cursor-pointer focus:scale-105 focus:outline-none">
     <div
       class="relative transition-transform duration-300 transform bg-gray-700 rounded-md hover:scale-105"
-      style="height: 330px; width: 220px"
+      style="height: 330px; width: 230px"
     >
       <img
         :src="movie.posterUrl"

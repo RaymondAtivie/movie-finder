@@ -12,21 +12,7 @@
     </div>
 
     <div class="w-full mt-20 mb-64">
-      <div>
-        <slides-list :movies="filteredMovies" />
-      </div>
-
-      <!-- <div class="flex flex-wrap w-full mt-10">
-        <nuxt-link
-          tabindex="-1"
-          :to="`/movie/${movie.id}`"
-          class="flex-shrink-0 w-1/2 px-1 md:px-3 md:w-1/4"
-          v-for="movie in filteredMovies"
-          :key="movie.id"
-        >
-          <movie :movie="movie" />
-        </nuxt-link>
-      </div>-->
+      <slides-list :movies="filteredMovies" />
     </div>
   </div>
 </template>

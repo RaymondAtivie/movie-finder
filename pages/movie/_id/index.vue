@@ -8,6 +8,7 @@
       <img :src="movie.backdropUrl" v-if="movie.backdropUrl" class="object-cover w-full h-full" />
       <div class="absolute inset-0 flex items-center justify-center w-full h-full">
         <div
+          @click="playVideo()"
           class="flex items-center justify-center w-20 h-20 mx-auto bg-red-600 rounded-full cursor-pointer"
         >
           <svg
@@ -70,6 +71,12 @@ import Movie from '@/models/Movie'
 })
 export default class MoviePage extends Vue {
   movie: Movie | null = null
+
+  playVideo() {
+    this.$toast.info("Sorry! It's actually just an image 😅", {
+      duration: 2000,
+    })
+  }
 
   async loadMovie(movie_id: string) {
     const movie = await this.$store.dispatch('movies/getMovie', movie_id)

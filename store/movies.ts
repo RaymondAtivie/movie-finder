@@ -66,7 +66,7 @@ export const actions: ActionTree<NotificationState, RootState> = {
   },
 
   async search({ commit }, query: string) {
-    commit('UPDATE_SLIDE_INDEX', 0);
+    // commit('UPDATE_SLIDE_INDEX', 0);
 
     if (!query) return;
 
