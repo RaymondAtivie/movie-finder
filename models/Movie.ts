@@ -10,6 +10,9 @@ class Movie {
   get posterUrl() {
     return "https://image.tmdb.org/t/p/w500" + this.poster;
   }
+  get thumbnailUrl() {
+    return "https://image.tmdb.org/t/p/w92" + this.poster;
+  }
 
   static fromJson(json: any): Movie {
     return new Movie(
