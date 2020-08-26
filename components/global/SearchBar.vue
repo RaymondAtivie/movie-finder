@@ -34,14 +34,14 @@
       style="max-height: 20rem"
       class="absolute left-0 right-0 z-40 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
     >
-      <a
-        :href="`/movie/${movie.id}`"
+      <nuxt-link
+        :to="`/movie/${movie.id}`"
         class="border-b cursor-pointer hover:bg-red-100"
         v-for="movie in autoCompleteMovies"
         :key="movie.id"
       >
         <search-item :movie="movie"></search-item>
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>

@@ -17,15 +17,15 @@
       </div>
 
       <div class="flex flex-wrap w-full mt-10">
-        <a
+        <nuxt-link
           tabindex="-1"
-          :href="`/movie/${movie.id}`"
+          :to="`/movie/${movie.id}`"
           class="flex-shrink-0 w-1/2 px-1 md:px-3 md:w-1/4"
           v-for="movie in filteredMovies"
           :key="movie.id"
         >
           <movie :movie="movie" />
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -37,7 +37,20 @@ import Movie from '@/models/Movie'
 
 const moviesStore = namespace('movies')
 
-@Component
+@Component({
+  head(this: IndexPage): object {
+    return {
+      title: `Searching for ${this.searchTerm} | MovieFinder`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Showing results for ${this.searchTerm} on MovieFinder`,
+        },
+      ],
+    }
+  },
+})
 export default class IndexPage extends Vue {
   @moviesStore.Getter
   public filteredMovies!: Movie[]

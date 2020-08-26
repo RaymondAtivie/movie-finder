@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="w-full max-w-screen-xl mx-auto overflow-hidden bg-dark-100" style="height: 500px" v-if="movie">
+    <div
+      class="w-full max-w-screen-xl mx-auto overflow-hidden bg-dark-100"
+      style="height: 500px"
+      v-if="movie"
+    >
       <img :src="movie.backdropUrl" class="object-cover w-full h-full" />
     </div>
     <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
@@ -31,7 +35,20 @@
 import { Vue, Component } from 'nuxt-property-decorator'
 import Movie from '@/models/Movie'
 
-@Component({})
+@Component({
+  head(this: MoviePage): object {
+    return {
+      title: `${this.movie?.title} | MovieFinder`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Details for ${this.movie?.title} on MovieFinder`,
+        },
+      ],
+    }
+  },
+})
 export default class MoviePage extends Vue {
   movie: Movie | null = null
 

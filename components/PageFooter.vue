@@ -1,9 +1,9 @@
 <template>
   <footer class="w-full pt-10 pb-20 bg-gray-800 border-t shadow-md">
     <div class="max-w-screen-xl px-4 mx-auto">
-      <a href="/">
+      <nuxt-link to="/">
         <logo class="h-24" :white="true" />
-      </a>
+      </nuxt-link>
     </div>
   </footer>
 </template>
