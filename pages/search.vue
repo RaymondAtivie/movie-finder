@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-dark-500">
-    <div class="w-full mt-16">
+    <div class="w-full px-4 mt-16">
       <div class="text-dark-200">
         Search Results &middot; {{ filteredMovies.length }}
         <span
@@ -16,11 +16,11 @@
         <!-- <slides-list /> -->
       </div>
 
-      <div class="flex flex-wrap w-full px-4 mt-10">
+      <div class="flex flex-wrap w-full mt-10">
         <a
           tabindex="-1"
           :href="`/movie/${movie.id}`"
-          class="flex-shrink-0 w-full px-3 md:w-1/4"
+          class="flex-shrink-0 w-1/2 px-1 md:px-3 md:w-1/4"
           v-for="movie in filteredMovies"
           :key="movie.id"
         >

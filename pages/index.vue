@@ -1,16 +1,18 @@
 <template>
   <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
-    <div class="self-stretch px-20 mt-20 text-center">
-      <logo white class="mx-auto mb-4" />
+    <div class="self-stretch px-4 mt-16 text-center md:mt-20 md:px-20">
+      <logo white class="w-32 mx-auto mb-4 md:w-auto" />
       <search-bar />
     </div>
 
     <div class="mt-20">
-      <h2 class="ml-2 text-4xl text-center text-white">Popular Movies right now</h2>
+      <h2
+        class="ml-2 text-xl text-left text-white md:text-4xl md:text-center"
+      >Popular Movies right now</h2>
       <div class="flex flex-wrap w-full mt-6">
         <a
           :href="`/movie/${movie.id}`"
-          class="w-1/4 px-3"
+          class="w-1/2 px-1 md:w-1/4 md:px-3"
           v-for="(movie, index) in popularMovies"
           :key="index"
         >
