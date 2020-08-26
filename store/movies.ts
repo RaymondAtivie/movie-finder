@@ -6,6 +6,7 @@ export const state = () => ({
   allMovies: [] as Movie[],
   popularMovies: [] as Movie[],
   query: "" as string,
+  currentSlideIndex: 1 as number,
 })
 
 export type NotificationState = ReturnType<typeof state>
@@ -14,7 +15,8 @@ export const getters: GetterTree<NotificationState, RootState> = {
   movies: state => state.allMovies,
   popularMovies: state => state.popularMovies,
   filteredMovies: state => state.allMovies.filter(movie => movie.title.toLowerCase().includes(state.query.toLowerCase())),
-  searchTerm:  state => state.query
+  searchTerm: state => state.query,
+  slideIndex: state => state.currentSlideIndex,
 }
 
 export const mutations: MutationTree<NotificationState> = {
@@ -27,6 +29,9 @@ export const mutations: MutationTree<NotificationState> = {
   UPDATE_SEARCH_QUERY: (state, query: string) => {
     state.query = query;
   },
+  UPDATE_SLIDE_INDEX: (state, index: number) => {
+    state.currentSlideIndex = index;
+  }
 }
 export const actions: ActionTree<NotificationState, RootState> = {
   async loadPopularMovies({ commit }) {
@@ -41,7 +46,7 @@ export const actions: ActionTree<NotificationState, RootState> = {
   async search({ commit, state }, query: string) {
     commit('UPDATE_SEARCH_QUERY', query);
 
-    const response = await this.$axios.get(`https://api.themoviedb.org/3/search/movie?api_key=9099d4a456925cc52c8aed25ab61ba4e&query=${query}`);
+    const response = await this.$axios.get(`https://api.themoviedb.org/3/search/movie?api_key=9099d4a456925cc52c8aed25ab61ba4e&query=${query}&append_to_response=credits`);
 
     const movies: Movie[] = Movie.fromArray(response.data.results);
 

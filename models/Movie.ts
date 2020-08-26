@@ -20,6 +20,10 @@ class Movie {
     return null;
   }
 
+  get year(): string {
+    return this.release?.split("-")[0]
+  }
+
   static fromJson(json: any): Movie {
     return new Movie(
       json.id,

@@ -13,8 +13,8 @@
     </form>
 
     <div
-      v-if="showDropdown"
-      class="absolute left-0 right-0 h-64 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
+      v-if="showDropdown && filteredMovies.length > 0"
+      class="absolute left-0 right-0 z-40 h-64 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
     >
       <div
         class="border-t cursor-pointer hover:bg-gray-100"
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, namespace } from 'nuxt-property-decorator'
+import { Vue, Component, Prop, namespace } from 'nuxt-property-decorator'
 import Movie from '@/models/Movie'
 
 import debounce from 'lodash.debounce'
@@ -37,6 +37,8 @@ const moviesStore = namespace('movies')
 
 @Component
 export default class SearchBar extends Vue {
+  @Prop({ default: '' }) initial!: string
+
   searchQuery: string = ''
   showDropdown: boolean = false
 
@@ -48,12 +50,23 @@ export default class SearchBar extends Vue {
   }, 500)
 
   search() {
+    window.history.replaceState(
+      null,
+      document.title,
+      `?keyword=${this.searchQuery}`
+    )
     this.$store.dispatch('movies/search', this.searchQuery)
   }
 
   gotoSearchPage() {
     this.search()
     this.$router.push(`/search?keyword=${this.searchQuery}`)
+  }
+
+  mounted() {
+    if (this.initial) {
+      this.searchQuery = this.initial
+    }
   }
 }
 </script>

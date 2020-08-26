@@ -1,6 +1,8 @@
 <template>
   <div>
-    <img :src="movie.posterUrl" />
+    <div class="w-full bg-black" style="height: 300px">
+      <img :src="movie.posterUrl" class="object-contain w-full h-full" />
+    </div>
     <h4>
       {{ movie.title }} &middot;
       <span>{{ movie.release }}</span>

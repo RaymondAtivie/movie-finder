@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-purple-300">
-    <search-bar class="mt-40" />
+    <search-bar class="mt-20" />
 
     <div class="mt-10">
       <h2>Popular Movies</h2>
