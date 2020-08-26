@@ -1,5 +1,9 @@
 <template>
-  <div class="w-full bg-red-100">
-    <div class="max-w-screen-lg mx-auto bg-blue-200">Navbar</div>
+  <div class="w-full py-3 bg-white shadow-md">
+    <div class="max-w-screen-lg px-4 mx-auto">
+      <a href="/">
+        <logo class="h-20" />
+      </a>
+    </div>
   </div>
 </template>

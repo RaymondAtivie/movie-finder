@@ -5,6 +5,7 @@ class Movie {
     public poster: string,
     public director: string,
     public release: string,
+    public rating: number
   ) { }
 
   get posterUrl(): string | null {
@@ -31,6 +32,7 @@ class Movie {
       json.poster_path,
       json.overview,
       json.release_date,
+      json.vote_average,
     );
   }
 

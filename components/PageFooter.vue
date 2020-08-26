@@ -1,5 +1,9 @@
 <template>
-  <footer class="w-full bg-red-100">
-    <div class="max-w-screen-lg mx-auto bg-blue-200">Footer</div>
+  <footer class="w-full pt-10 pb-20 bg-gray-800 border-t shadow-md">
+    <div class="max-w-screen-xl px-4 mx-auto">
+      <a href="/">
+        <logo class="h-24" :white="true" />
+      </a>
+    </div>
   </footer>
 </template>

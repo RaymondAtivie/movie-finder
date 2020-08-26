@@ -1,11 +1,14 @@
 <template>
-  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-purple-300">
-    <search-bar class="mt-20" />
+  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto ">
+    <div class="self-stretch px-20 mt-20 text-center">
+      <logo class="mx-auto mb-4" />
+      <search-bar />
+    </div>
 
-    <div class="mt-10">
-      <h2>Popular Movies</h2>
-      <div class="flex flex-wrap w-full">
-        <div class="w-1/4 px-6" v-for="(movie, index) in popularMovies" :key="index">
+    <div class="mt-20">
+      <h2 class="ml-2 text-5xl text-center">Popular Movies</h2>
+      <div class="flex flex-wrap w-full mt-10">
+        <div class="w-1/4 px-3" v-for="(movie, index) in popularMovies" :key="index">
           <movie :movie="movie" />
         </div>
       </div>

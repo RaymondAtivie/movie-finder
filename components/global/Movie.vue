@@ -1,12 +1,21 @@
 <template>
-  <div>
-    <div class="w-full bg-black" style="height: 300px">
-      <img :src="movie.posterUrl" class="object-contain w-full h-full" />
+  <div
+    tabindex="0"
+    class="mb-10 transition-transform duration-300 transform cursor-pointer focus:scale-105 hover:scale-105 focus:outline-none"
+  >
+    <div class="relative w-full bg-black rounded-md" style="height: 300px">
+      <img :src="movie.posterUrl" class="bottom-0 object-cover w-full h-full rounded-md" />
+      <div
+        style="top: 10px; right: 10px"
+        class="absolute inline-flex items-center justify-center px-1 text-sm font-medium text-white rounded-md"
+        :class="movie.rating <= 7 ? 'bg-red-600' : 'bg-green-600'"
+      >{{ (movie.rating).toFixed(1) }}</div>
+      <div
+        style="bottom: 10px; right: 10px"
+        class="absolute inline-flex items-center justify-center px-1 text-sm font-medium text-white bg-gray-700 rounded-md"
+      >{{ movie.year }}</div>
     </div>
-    <h4>
-      {{ movie.title }} &middot;
-      <span>{{ movie.release }}</span>
-    </h4>
+    <h4 class="px-2 mt-4 text-xl text-center">{{ movie.title }}</h4>
     <!-- <p>{{ movie.director }}</p> -->
   </div>
 </template>

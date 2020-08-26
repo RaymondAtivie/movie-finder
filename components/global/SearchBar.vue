@@ -1,23 +1,35 @@
 <template>
   <div class="relative">
-    <form class="flex" @submit.prevent="gotoSearchPage">
+    <div
+      @click="showDropdown = false"
+      v-if="showDropdown"
+      class="fixed inset-0 z-40 w-full h-full bg-opacity-50"
+    ></div>
+    <form
+      @submit.prevent="gotoSearchPage"
+      class="relative z-50 flex transition-all duration-150 ease-out transform rounded-sm"
+      :class="showDropdown ? 'shadow-lg' : ''"
+    >
       <input
         @focus="showDropdown = true"
-        @blur="showDropdown = false"
-        class="w-64 px-2 py-4 border-2"
-        placeholder="Search"
+        class="w-full px-6 py-4 border-t border-b border-l rounded-l-lg focus:outline-none"
+        placeholder="Search for movies by thier title"
         v-model="searchQuery"
         @input="debounceSearch"
       />
-      <button type="submit" class="px-4 py-4 ml-3 text-white bg-blue-400">Search</button>
+      <button
+        type="submit"
+        class="h-16 px-8 text-lg font-bold text-white bg-red-500 rounded-r-lg"
+      >Search</button>
     </form>
 
     <div
       v-if="showDropdown && filteredMovies.length > 0"
-      class="absolute left-0 right-0 z-40 h-64 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
+      style="max-height: 20rem"
+      class="absolute left-0 right-0 z-40 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
     >
       <div
-        class="border-t cursor-pointer hover:bg-gray-100"
+        class="border-b cursor-pointer hover:bg-red-100"
         v-for="movie in filteredMovies"
         :key="movie.id"
       >

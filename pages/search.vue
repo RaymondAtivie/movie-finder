@@ -1,17 +1,17 @@
 <template>
-  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-purple-300">
+  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
     <search-bar :initial="searchTerm" class="mt-10" />
 
     <div class="w-full mt-10">
       <h2>Search Results for: {{ searchTerm }}</h2>
 
       <div>
-        <slides-list />
+        <!-- <slides-list /> -->
       </div>
 
       <div class="flex flex-wrap w-full mt-10">
         <div
-          class="flex-shrink-0 w-full px-6 md:w-1/4"
+          class="flex-shrink-0 w-full px-3 md:w-1/4"
           v-for="movie in filteredMovies"
           :key="movie.id"
         >
