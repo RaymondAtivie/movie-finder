@@ -1,6 +1,9 @@
 <template>
-  <div tabindex="0" class="flex items-center px-3 py-3 border-b focus:outline-none focus:bg-red-100 hover:bg-red-100">
-    <div class="w-10 mr-3 overflow-hidden bg-black rounded-md h-14">
+  <div
+    tabindex="0"
+    class="flex items-center px-3 py-3 border-b border-dark-200 focus:outline-none focus:bg-dark-500 hover:bg-dark-500"
+  >
+    <div class="w-10 mr-3 overflow-hidden bg-black rounded-sm h-14">
       <img v-if="movie.thumbnailUrl" class="object-cover w-full h-full" :src="movie.thumbnailUrl" />
       <div
         v-else
@@ -8,13 +11,12 @@
       >NO IMAGE</div>
     </div>
 
-    <div class="flex-1 text-xl font-medium text-left text-gray-800">{{ movie.title }}</div>
-    <div class="text-gray-700">{{ movie.year }}</div>
-    <div
-      style="top: 10px; right: 10px"
-      class="inline-flex items-center justify-center px-2 ml-4 text-sm font-medium text-white rounded-md"
-      :class="movie.rating <= 7 ? 'bg-red-600' : 'bg-green-600'"
-    >{{ (movie.rating).toFixed(1) }}</div>
+    <div class="flex-1 text-xl font-medium text-left text-white">
+      <div>{{ movie.title }}</div>
+      <rating-stars :rating="movie.rating" />
+    </div>
+
+    <div class="text-gray-200">{{ movie.year }}</div>
   </div>
 </template>
 

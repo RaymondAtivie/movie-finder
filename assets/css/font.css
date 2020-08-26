@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'Mabry Pro';
+  font-weight: 200;
+  src: url(/fonts/Mabry-Pro-Light.woff) format('off');
+}
+@font-face {
+  font-family: 'Mabry Pro';
+  font-weight: 400;
+  src: url(/fonts/Mabry-Pro.woff) format('off');
+}
+@font-face {
+  font-family: 'Mabry Pro';
+  font-weight: 500;
+  src: url(/fonts/Mabry-Pro-Medium.off) format('off');
+}
+@font-face {
+  font-family: 'Mabry Pro';
+  font-weight: 800;
+  src: url(/fonts/Mabry-Pro-Bold.off) format('off');
+}

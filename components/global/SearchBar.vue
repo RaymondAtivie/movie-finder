@@ -32,14 +32,9 @@
     <div
       v-if="showDropdown && autoCompleteMovies.length > 0"
       style="max-height: 20rem"
-      class="absolute left-0 right-0 z-40 mt-2 overflow-y-auto bg-white rounded-md shadow-lg"
+      class="absolute left-0 right-0 z-40 mt-2 overflow-y-auto rounded-sm shadow-lg bg-dark-300"
     >
-      <nuxt-link
-        :to="`/movie/${movie.id}`"
-        class="border-b cursor-pointer hover:bg-red-100"
-        v-for="movie in autoCompleteMovies"
-        :key="movie.id"
-      >
+      <nuxt-link :to="`/movie/${movie.id}`" v-for="movie in autoCompleteMovies" :key="movie.id">
         <search-item :movie="movie"></search-item>
       </nuxt-link>
     </div>
