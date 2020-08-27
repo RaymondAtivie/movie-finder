@@ -1,16 +1,17 @@
 <template>
   <main class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
     <div class="self-stretch px-4 mt-16 text-center md:mt-20 md:px-20">
-      <logo class="w-32 mx-auto md:w-auto" />
-      <p class="text-dark-100">Find your favorite movies</p>
+      <!-- <logo class="w-32 mx-auto md:w-auto" /> -->
+      <h1 class="mt-20 text-4xl font-medium text-white md:text-5xl soft-switch">MovieFinder</h1>
+      <p class="text-dark-100">Want to find out about a movie? We've got you!</p>
 
-      <search-bar class="mt-4" />
+      <search-bar class="mt-8" />
     </div>
 
     <div class="mt-56">
       <h2
-        class="ml-2 text-xl text-left text-white md:text-4xl md:text-center"
-      >Popular Movies right now</h2>
+        class="ml-2 text-xl text-left text-white soft-switch md:text-4xl md:text-center"
+      >New Releases</h2>
 
       <div class="flex flex-wrap w-full mt-6" v-if="popularMovies">
         <nuxt-link

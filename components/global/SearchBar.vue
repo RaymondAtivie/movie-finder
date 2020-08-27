@@ -13,7 +13,7 @@
       <input
         type="search"
         class="w-full py-3 text-xl leading-none text-white bg-transparent md:text-4xl focus:outline-none placeholder-dark-200"
-        placeholder="Search... "
+        placeholder="Search by title... "
         @focus="showDropdown = true"
         v-model="searchQuery"
         @input="debounceSearch"

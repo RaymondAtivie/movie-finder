@@ -19,10 +19,10 @@
 
       <div
         style="bottom: 10px; right: 10px"
-        class="absolute inline-flex items-center justify-center px-2 text-xs font-medium text-white rounded-md bg-dark-200"
+        class="absolute inline-flex items-center justify-center px-2 text-xs font-medium text-white rounded-md soft-switch bg-dark-200"
       >{{ movie.year }}</div>
     </div>
-    <div class="pr-2 mt-2 text-base text-left text-white md:text-lg">{{ movie.title }}</div>
+    <div class="pr-2 mt-2 text-base text-left text-white soft-switch md:text-lg">{{ movie.title }}</div>
     <rating-stars :rating="movie.rating" />
   </div>
 </template>
