@@ -56,8 +56,6 @@ export default class IndexPage extends Vue {
     if (params.keyword) {
       this.$store.dispatch('movies/search', params.keyword)
       this.$store.commit('movies/UPDATE_SEARCH_QUERY', params.keyword)
-
-      this.$store.commit('movies/UPDATE_SLIDE_INDEX', 0)
     }
   }
 }

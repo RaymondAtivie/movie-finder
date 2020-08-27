@@ -77,6 +77,8 @@ export default class SearchBar extends Vue {
     this.search()
 
     this.$router.push(`/search?keyword=${this.searchQuery}`)
+
+    this.$store.commit('movies/UPDATE_SLIDE_INDEX', 0)
   }
 
   mounted() {
