@@ -1,7 +1,6 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
 import Movie from '~/models/Movie'
 import { RootState } from '.'
-import Vue from 'vue'
 
 export const state = () => ({
   popularMovies: [] as Movie[],
@@ -57,8 +56,8 @@ export const mutations: MutationTree<NotificationState> = {
   }
 }
 export const actions: ActionTree<NotificationState, RootState> = {
-  loadPopularMovies({ commit }) {
-    this.$axios.get("/movie/popular?api_key=9099d4a456925cc52c8aed25ab61ba4e")
+  loadPopularMovies({ commit, rootState }) {
+    this.$axios.get(`/movie/popular?api_key=${rootState.key}`)
       .then(response => {
         const movies: Movie[] = Movie.fromArray(response.data.results).slice(0, 16);
 
@@ -71,10 +70,10 @@ export const actions: ActionTree<NotificationState, RootState> = {
 
   },
 
-  search({ commit }, query: string) {
+  search({ commit, rootState }, query: string) {
     if (!query) return;
 
-    this.$axios.get(`/search/movie?api_key=9099d4a456925cc52c8aed25ab61ba4e&query=${query}`).then(response => {
+    this.$axios.get(`/search/movie?api_key=${rootState.key}&query=${query}`).then(response => {
       const movies: Movie[] = Movie.fromArray(response.data.results);
 
       commit('UPDATE_AUTO_COMPLETE', movies);
@@ -86,14 +85,14 @@ export const actions: ActionTree<NotificationState, RootState> = {
 
   },
 
-  getMovie({ state }, movie_id: number): Promise<Movie> {
+  getMovie({ state, rootState }, movie_id: number): Promise<Movie> {
     return new Promise((resolve, reject) => {
       const foundMovie = state.allMovies.find(movie => movie.id == movie_id)
       if (foundMovie) {
         return resolve(foundMovie);
       }
 
-      this.$axios.get(`/movie/${movie_id}?api_key=9099d4a456925cc52c8aed25ab61ba4e`)
+      this.$axios.get(`/movie/${movie_id}?api_key=${rootState.key}`)
         .then((response) => {
           resolve(Movie.fromJson(response.data))
         })

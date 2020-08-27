@@ -1,8 +1,31 @@
 <template>
   <main>
+    <template v-if="!movie">
+      <div
+        class="absolute w-full max-w-screen-xl mx-auto overflow-hidden animate-pulse md:relative md:block bg-dark-300"
+      >
+        <div style="height: 500px"></div>
+      </div>
+      <div class="relative flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
+        <div class="flex flex-col items-center justify-between w-full px-4">
+          <div class="flex flex-wrap items-start w-full md:mx-10 md:flex-no-wrap">
+            <div class="flex-shrink-0 w-full px-10 md:w-1/3">
+              <div class="w-full mt-8 rounded-sm bg-dark-200 md:-mt-32" style="height: 400px"></div>
+            </div>
+
+            <div class="flex flex-col w-full mt-6 animate-pulse">
+              <div class="w-7/12 h-5 mt-2 rounded-md bg-dark-300"></div>
+              <div class="w-8/12 h-5 mt-2 rounded-md bg-dark-300"></div>
+              <div class="w-11/12 h-20 mt-2 rounded-md bg-dark-300"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
     <div
       class="absolute w-full max-w-screen-xl mx-auto overflow-hidden md:relative md:block bg-dark-300"
-      v-if="movie"
+      v-else
     >
       <template v-if="movie.backdropUrl">
         <img
@@ -62,7 +85,7 @@
 
             <template v-if="casts.length > 0">
               <div class="mt-6 text-dark-100">Casts</div>
-              <div class="flex flex-wrap mt-3 ">
+              <div class="flex flex-wrap mt-3">
                 <div
                   class="w-20 mb-6 mr-2 text-center md:mr-6"
                   v-for="cast in casts"
@@ -138,17 +161,14 @@ export default class MoviePage extends Vue {
   }
 
   getCast(movie_id: number | string) {
-    this.$axios
-      .get(
-        `/movie/${movie_id}/credits?api_key=9099d4a456925cc52c8aed25ab61ba4e`
-      )
-      .then((res) => {
-        const crew = res.data.crew as any[]
-        const directors = crew.filter((c) => c.job == 'Director')
+    const key = this.$store.state.key
+    this.$axios.get(`/movie/${movie_id}/credits?api_key=${key}`).then((res) => {
+      const crew = res.data.crew as any[]
+      const directors = crew.filter((c) => c.job == 'Director')
 
-        this.casts = Cast.fromArray(res.data.cast.splice(0, 10))
-        this.directors = Cast.fromArray(directors)
-      })
+      this.casts = Cast.fromArray(res.data.cast.splice(0, 10))
+      this.directors = Cast.fromArray(directors)
+    })
   }
 
   async loadMovie(movie_id: string) {
