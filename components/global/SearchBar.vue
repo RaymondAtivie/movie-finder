@@ -8,16 +8,13 @@
 
     <form
       @submit.prevent="gotoSearchPage"
-      class="relative z-50 flex items-center justify-between w-full pb-2 border-b-2 border-dark-200"
+      class="relative z-50 flex items-center justify-between w-full border-b-2 border-dark-200"
     >
-      <label class="hidden" for="searchBox">Search</label>
       <input
-        id="searchBox"
         type="search"
-        class="w-full text-xl leading-none text-white bg-transparent md:text-4xl focus:outline-none placeholder-dark-200"
+        class="w-full py-3 text-xl leading-none text-white bg-transparent md:text-4xl focus:outline-none placeholder-dark-200"
         placeholder="Search... "
         @focus="showDropdown = true"
-        @blur="showDropdown = false"
         v-model="searchQuery"
         @input="debounceSearch"
       />

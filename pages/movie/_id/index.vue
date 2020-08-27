@@ -55,19 +55,46 @@
 
             <p class="mt-3 text-dark-100">{{ movie.overview}}</p>
 
-            <div class="mt-6 text-dark-100">Casts</div>
-
-            <div class="flex flex-wrap mt-3 md:flex-no-wrap">
-              <div class="w-20 mb-6 mr-2 text-center md:mr-6" v-for="cast in casts" :key="cast.id">
-                <div class="relative w-16 h-16 mx-auto rounded-full bg-dark-300">
-                  <img
-                    :src="cast.pictureUrl"
-                    class="absolute object-cover w-full h-full rounded-full"
-                  />
+            <template v-if="casts.length > 0">
+              <div class="mt-6 text-dark-100">Casts</div>
+              <div class="flex flex-wrap mt-3 md:flex-no-wrap">
+                <div
+                  class="w-20 mb-6 mr-2 text-center md:mr-6"
+                  v-for="cast in casts"
+                  :key="cast.id"
+                >
+                  <div class="relative w-16 h-16 mx-auto rounded-full bg-dark-300">
+                    <img
+                      :src="cast.pictureUrl"
+                      class="absolute object-cover w-full h-full rounded-full"
+                    />
+                  </div>
+                  <div class="mt-3 text-xs leading-tight text-center text-white">{{ cast.name }}</div>
                 </div>
-                <div class="mt-3 text-xs leading-tight text-center text-white">{{ cast.name }}</div>
               </div>
-            </div>
+            </template>
+
+            <template v-if="directors.length > 0">
+              <div class="mt-6 text-dark-100">
+                <span v-if="directors.length > 1">Directors</span>
+                <span v-else>Director</span>
+              </div>
+              <div class="flex flex-wrap mt-3 md:flex-no-wrap">
+                <div
+                  class="w-20 mb-6 mr-2 text-center md:mr-6"
+                  v-for="director in directors"
+                  :key="director.id"
+                >
+                  <div class="relative w-16 h-16 mx-auto rounded-full bg-dark-300">
+                    <img
+                      :src="director.pictureUrl"
+                      class="absolute object-cover w-full h-full rounded-full"
+                    />
+                  </div>
+                  <div class="mt-3 text-xs leading-tight text-center text-white">{{ director.name }}</div>
+                </div>
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -97,6 +124,7 @@ import Cast from '@/models/Cast'
 export default class MoviePage extends Vue {
   movie: Movie | null = null
   casts: Cast[] = []
+  directors: Cast[] = []
 
   playVideo() {
     this.$toast.info("Sorry! It's actually just an image 😅", {
@@ -110,10 +138,11 @@ export default class MoviePage extends Vue {
         `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=9099d4a456925cc52c8aed25ab61ba4e`
       )
       .then((res) => {
-        // console.log(res.data.cast.splice(0, 5))
-        console.log(res.data.crew)
+        const crew = res.data.crew as any[]
+        const directors = crew.filter((c) => c.job == 'Director')
 
         this.casts = Cast.fromArray(res.data.cast.splice(0, 5))
+        this.directors = Cast.fromArray(directors)
       })
   }
 

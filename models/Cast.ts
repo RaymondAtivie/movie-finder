@@ -2,7 +2,6 @@ class Cast {
   constructor(
     public id: number,
     public name: string,
-    public character: string,
     public picture: string,
   ) { }
 
@@ -16,7 +15,6 @@ class Cast {
     return new Cast(
       json.id,
       json.name,
-      json.character,
       json.profile_path,
     );
   }

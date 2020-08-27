@@ -11,8 +11,12 @@
       <search-bar :initial="searchTerm" />
     </div>
 
-    <div class="w-full mt-20 mb-64">
+    <div v-if="filteredMovies.length > 0" class="w-full mt-20 mb-64">
       <slides-list :movies="filteredMovies" />
+    </div>
+
+    <div v-else class="mt-24">
+      <div class="w-full text-4xl text-left text-white">No results for this search</div>
     </div>
   </div>
 </template>
