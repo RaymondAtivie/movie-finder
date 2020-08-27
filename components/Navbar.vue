@@ -2,7 +2,7 @@
   <nav class="fixed z-50 w-full py-3 shadow-md bg-dark-500 soft-switch" style="z-index: 999">
     <div class="flex justify-between max-w-screen-lg px-4 mx-auto">
       <nuxt-link aria-label="home" to="/">
-        <logo white class="h-20" />
+        <logo class="h-20" />
       </nuxt-link>
 
       <button
