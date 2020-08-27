@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div class="flex items-center py-5 overflow-hidden" ref="slideBox">
-      <ul class="flex items-center ml-3">
+      <ul v-if="movies" class="flex items-center ml-3">
         <li
           v-for="movie in movies"
           :key="movie.id"
@@ -9,6 +9,17 @@
           :style="listPosition"
         >
           <slide :movie="movie" />
+        </li>
+      </ul>
+
+      <ul v-else class="flex items-center ml-3">
+        <li
+          v-for="i in 3"
+          :key="i+'sk'"
+          class="pr-8 transition-transform duration-1000 ease-in-out"
+          :style="listPosition"
+        >
+          <movie-skeleton />
         </li>
       </ul>
     </div>
@@ -55,10 +66,6 @@ export default class SlideList extends Vue {
   @moviesStore.Getter
   public slideIndex!: number
 
-  get listWidth() {
-    return { width: this.movies.length * 100 + '%' }
-  }
-
   get listPosition() {
     return { transform: `translateX(-${this.slideIndex * 100}%)` }
   }
@@ -67,7 +74,6 @@ export default class SlideList extends Vue {
     if (this.slideIndex == 0) return
 
     const newIndex = this.slideIndex - 1
-
     this.$store.commit('movies/UPDATE_SLIDE_INDEX', newIndex)
   }
 
@@ -75,7 +81,6 @@ export default class SlideList extends Vue {
     if (this.slideIndex == this.movies.length - 1) return
 
     const newIndex = this.slideIndex + 1
-
     this.$store.commit('movies/UPDATE_SLIDE_INDEX', newIndex)
   }
 

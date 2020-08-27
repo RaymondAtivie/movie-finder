@@ -31,7 +31,7 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 import Movie from '@/models/Movie'
 
 @Component
-export default class SearchBar extends Vue {
+export default class MovieItem extends Vue {
   @Prop({ required: true }) movie!: Movie
 }
 </script>
