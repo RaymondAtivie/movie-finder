@@ -58,7 +58,7 @@ export const mutations: MutationTree<NotificationState> = {
 }
 export const actions: ActionTree<NotificationState, RootState> = {
   async loadPopularMovies({ commit }) {
-    const response = await this.$axios.get("https://api.themoviedb.org/3/movie/popular?api_key=9099d4a456925cc52c8aed25ab61ba4e");
+    const response = await this.$axios.get("/movie/popular?api_key=9099d4a456925cc52c8aed25ab61ba4e");
 
     const movies: Movie[] = Movie.fromArray(response.data.results).slice(0, 16);
 
@@ -70,7 +70,7 @@ export const actions: ActionTree<NotificationState, RootState> = {
 
     if (!query) return;
 
-    const response = await this.$axios.get(`https://api.themoviedb.org/3/search/movie?api_key=9099d4a456925cc52c8aed25ab61ba4e&query=${query}`);
+    const response = await this.$axios.get(`/search/movie?api_key=9099d4a456925cc52c8aed25ab61ba4e&query=${query}`);
 
     const movies: Movie[] = Movie.fromArray(response.data.results);
 
@@ -85,7 +85,7 @@ export const actions: ActionTree<NotificationState, RootState> = {
         return resolve(foundMovie);
       }
 
-      this.$axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=9099d4a456925cc52c8aed25ab61ba4e`)
+      this.$axios.get(`/movie/${movie_id}?api_key=9099d4a456925cc52c8aed25ab61ba4e`)
         .then((response) => {
           resolve(Movie.fromJson(response.data))
         });

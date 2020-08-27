@@ -1,22 +1,27 @@
 <template>
   <div>
     <div
-      class="absolute w-full max-w-screen-xl mx-auto overflow-hidden md:relative md:block bg-dark-100"
+      class="absolute w-full max-w-screen-xl mx-auto overflow-hidden md:relative md:block bg-dark-300"
       v-if="movie"
     >
-      <img
-        :src="movie.backdropUrl"
+      <template v-if="movie.backdropUrl">
+        <img
+          :src="movie.backdropUrl"
+          class="hidden object-cover w-full md:block"
+          style="height: 500px"
+        />
+        <img
+          :src="movie.backdropUrl"
+          class="block object-cover w-full md:hidden"
+          style="height: 200px"
+        />
+      </template>
+      <div v-else style="height: 500px"></div>
+
+      <div
+        class="absolute inset-0 items-center justify-center hidden w-full h-full md:flex"
         v-if="movie.backdropUrl"
-        class="hidden object-cover w-full md:block"
-        style="height: 500px"
-      />
-      <img
-        :src="movie.backdropUrl"
-        v-if="movie.backdropUrl"
-        class="block object-cover w-full md:hidden"
-        style="height: 200px"
-      />
-      <div class="absolute inset-0 items-center justify-center hidden w-full h-full md:flex">
+      >
         <div
           @click="playVideo()"
           class="flex items-center justify-center w-20 h-20 mx-auto bg-red-600 rounded-full cursor-pointer"
@@ -57,7 +62,7 @@
 
             <template v-if="casts.length > 0">
               <div class="mt-6 text-dark-100">Casts</div>
-              <div class="flex flex-wrap mt-3 md:flex-no-wrap">
+              <div class="flex flex-wrap mt-3 ">
                 <div
                   class="w-20 mb-6 mr-2 text-center md:mr-6"
                   v-for="cast in casts"
@@ -135,13 +140,13 @@ export default class MoviePage extends Vue {
   getCast(movie_id: number | string) {
     this.$axios
       .get(
-        `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=9099d4a456925cc52c8aed25ab61ba4e`
+        `/movie/${movie_id}/credits?api_key=9099d4a456925cc52c8aed25ab61ba4e`
       )
       .then((res) => {
         const crew = res.data.crew as any[]
         const directors = crew.filter((c) => c.job == 'Director')
 
-        this.casts = Cast.fromArray(res.data.cast.splice(0, 5))
+        this.casts = Cast.fromArray(res.data.cast.splice(0, 10))
         this.directors = Cast.fromArray(directors)
       })
   }
