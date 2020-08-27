@@ -9,7 +9,7 @@ class Cast {
     if (this.picture)
       return "https://image.tmdb.org/t/p/w92" + this.picture;
 
-    return null
+    return "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTIs3peZbmHi0e-uTv4_RB4RWFfqEzE7BNNSg&usqp=CAU"
   }
   static fromJson(json: any): Cast {
     return new Cast(
