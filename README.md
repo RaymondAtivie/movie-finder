@@ -1,5 +1,8 @@
 # MovieFinder
 
+Built with [Typescript](https://typescript.nuxtjs.org), [Nuxt.js](https://nuxtjs.org), [Tailwindcss](https://tailwindcss.com) and using the [The Movie Database API](https://www.themoviedb.org/).
+
+
 ## Build Setup
 
 ```bash
@@ -16,5 +19,3 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
