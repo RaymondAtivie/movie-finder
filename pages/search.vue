@@ -1,5 +1,7 @@
 <template>
-  <main class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-dark-500 soft-switch">
+  <main
+    class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-dark-500 soft-switch"
+  >
     <div class="w-full px-4 mt-16">
       <div class="text-dark-200">
         Search Results &middot; {{ filteredMovies.length }}
@@ -54,6 +56,8 @@ export default class IndexPage extends Vue {
     if (params.keyword) {
       this.$store.dispatch('movies/search', params.keyword)
       this.$store.commit('movies/UPDATE_SEARCH_QUERY', params.keyword)
+
+      this.$store.commit('movies/UPDATE_SLIDE_INDEX', 0)
     }
   }
 }

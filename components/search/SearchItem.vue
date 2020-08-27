@@ -10,12 +10,12 @@
       >NO IMAGE</div>
     </div>
 
-    <div class="flex-1 text-xl font-medium text-left text-white">
+    <div class="flex-1 text-base font-medium text-left text-white md:text-xl">
       <div>{{ movie.title }}</div>
       <rating-stars :rating="movie.rating" />
     </div>
 
-    <div class="text-dark-100">{{ movie.year }}</div>
+    <div class="text-sm text-dark-100 md:text-base">{{ movie.year }}</div>
   </div>
 </template>
 
