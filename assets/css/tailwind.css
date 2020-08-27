@@ -4,3 +4,24 @@
 
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.soft-switch {
+  transition: all 100ms ease-in-out;
+}
+
+body,
+body.dark {
+  --white: #ffffff;
+  --black-500: #1c1c1c;
+  --black-300: #3f3f3f;
+  --black-200: #585858;
+  --black-100: #969696;
+}
+
+body.light {
+  --white: #000000;
+  --black-500: #ffffff;
+  --black-300: #3f3f3f;
+  --black-200: #585858;
+  --black-100: #969696;
+}

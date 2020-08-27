@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <div
       class="absolute w-full max-w-screen-xl mx-auto overflow-hidden md:relative md:block bg-dark-300"
       v-if="movie"
@@ -104,7 +104,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">

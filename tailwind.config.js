@@ -1,12 +1,16 @@
 module.exports = {
   theme: {
     extend: {
+      screens: {
+        'light-mode': { raw: '(prefers-color-scheme: light)' }
+      },
       colors: {
+        white: "var(--white)",
         dark: {
-          '100': "#969696",
-          '200': '#585858',
-          '300': '#3F3F3F',
-          '500': "#1C1C1C",
+          '100': "var(--black-100)",
+          '200': 'var(--black-200)',
+          '300': 'var(--black-300)',
+          '500': "var(--black-500)",
         }
       }
     }

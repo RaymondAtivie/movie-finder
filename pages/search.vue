@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-dark-500">
+  <main class="flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto bg-dark-500 soft-switch">
     <div class="w-full px-4 mt-16">
       <div class="text-dark-200">
         Search Results &middot; {{ filteredMovies.length }}
@@ -18,7 +18,7 @@
     <div v-else class="mt-24">
       <div class="w-full text-4xl text-left text-white">No results for this search</div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts">

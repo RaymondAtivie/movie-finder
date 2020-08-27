@@ -1,7 +1,7 @@
 <template>
   <div class="cursor-pointer focus:scale-105 focus:outline-none">
     <div
-      class="relative w-full transition-transform duration-300 transform bg-gray-700 rounded-md focus:scale-105 hover:scale-105"
+      class="relative w-full transition-transform duration-300 transform rounded-md bg-dark-200 focus:scale-105 hover:scale-105"
       style="height: 300px"
     >
       <img
@@ -19,7 +19,7 @@
 
       <div
         style="bottom: 10px; right: 10px"
-        class="absolute inline-flex items-center justify-center px-2 text-xs font-medium text-white bg-gray-700 rounded-md"
+        class="absolute inline-flex items-center justify-center px-2 text-xs font-medium text-white rounded-md bg-dark-200"
       >{{ movie.year }}</div>
     </div>
     <div class="pr-2 mt-2 text-base text-left text-white md:text-lg">{{ movie.title }}</div>
