@@ -22,7 +22,7 @@
         class="absolute inline-flex items-center justify-center px-2 text-xs font-medium text-white bg-gray-700 rounded-md"
       >{{ movie.year }}</div>
     </div>
-    <h4 class="pr-2 mt-2 text-base text-left text-white md:text-lg">{{ movie.title }}</h4>
+    <div class="pr-2 mt-2 text-base text-left text-white md:text-lg">{{ movie.title }}</div>
     <rating-stars :rating="movie.rating" />
   </div>
 </template>
