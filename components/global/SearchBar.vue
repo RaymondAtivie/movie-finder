@@ -20,7 +20,7 @@
       />
       <button type="submit" aria-label="search button">
         <svg
-          class="w-10 h-10 transform scale-75 text-dark-300"
+          class="w-10 h-10 transform scale-75 md:scale-100 text-dark-200"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

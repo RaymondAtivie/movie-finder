@@ -25,27 +25,27 @@
     </div>
 
     <button
-      class="absolute left-0 items-center justify-center hidden w-12 h-12 text-white bg-red-800 rounded-full md:flex focus:outline-none"
+      class="absolute left-0 items-center justify-center hidden w-12 h-12 bg-red-700 rounded-full md:flex focus:outline-none"
       @click="prev()"
     >
       <svg
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        class="w-6 h-6 text-white transform rotate-180 chevron-right"
+        class="w-6 h-6 text-gray-100 transform rotate-180 chevron-right"
       >
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
     </button>
     <button
-      class="absolute right-0 items-center justify-center hidden w-12 h-12 text-white bg-red-800 rounded-full md:flex focus:outline-none"
+      class="absolute right-0 items-center justify-center hidden w-12 h-12 bg-red-700 rounded-full md:flex focus:outline-none"
       @click="next()"
     >
       <svg
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        class="w-6 h-6 text-white chevron-right"
+        class="w-6 h-6 text-gray-100 chevron-right"
       >
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>

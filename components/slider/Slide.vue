@@ -11,7 +11,7 @@
       />
       <div
         v-else
-        class="flex items-center justify-center w-full h-full text-white bg-red-900 rounded-md"
+        class="flex items-center justify-center w-full h-full text-gray-100 bg-red-900 rounded-md"
       >
         <div class="uppercase">No Image</div>
       </div>
@@ -22,7 +22,7 @@
     <rating-stars :rating="movie.rating" />
     <div
       style="bottom: 10px; right: 10px"
-      class="inline-flex items-center justify-center px-2 text-xs font-medium text-white bg-red-500 rounded-md"
+      class="inline-flex items-center justify-center px-2 text-xs font-medium text-gray-100 bg-red-500 rounded-md"
     >{{ movie.year }}</div>
   </nuxt-link>
 </template>
