@@ -44,6 +44,17 @@
             </div>
 
             <p class="mt-3 text-dark-100">{{ movie.overview}}</p>
+
+            <div class="mt-6 text-dark-100">Casts</div>
+
+            <div class="flex mt-3">
+              <div class="w-20 mr-6 text-center" v-for="cast in casts" :key="cast.id">
+                <div class="relative w-16 h-16 mx-auto rounded-full bg-dark-300">
+                  <img :src="cast.pictureUrl" class="absolute object-cover w-full h-full rounded-full" />
+                </div>
+                <div class="mt-3 text-xs leading-tight text-center text-white">{{ cast.name }}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -54,6 +65,7 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import Movie from '@/models/Movie'
+import Cast from '@/models/Cast'
 
 @Component({
   head(this: MoviePage): object {
@@ -71,11 +83,25 @@ import Movie from '@/models/Movie'
 })
 export default class MoviePage extends Vue {
   movie: Movie | null = null
+  casts: Cast[] = []
 
   playVideo() {
     this.$toast.info("Sorry! It's actually just an image 😅", {
       duration: 2000,
     })
+  }
+
+  getCast(movie_id: number | string) {
+    this.$axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=9099d4a456925cc52c8aed25ab61ba4e`
+      )
+      .then((res) => {
+        // console.log(res.data.cast.splice(0, 5))
+        console.log(res.data.crew)
+
+        this.casts = Cast.fromArray(res.data.cast.splice(0, 5))
+      })
   }
 
   async loadMovie(movie_id: string) {
@@ -86,6 +112,7 @@ export default class MoviePage extends Vue {
   mounted() {
     const params = this.$route.params
     this.loadMovie(params.id)
+    this.getCast(params.id)
   }
 }
 </script>

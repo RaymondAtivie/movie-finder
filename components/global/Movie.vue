@@ -5,6 +5,7 @@
       style="height: 300px"
     >
       <img
+        :alt="movie.title + ' poster'"
         :src="movie.posterUrl"
         class="bottom-0 object-cover w-full h-full rounded-sm shadow-md"
         v-if="movie.posterUrl"

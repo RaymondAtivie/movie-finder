@@ -1,5 +1,5 @@
 <template>
-  <img :src=" white ? '/logo-white.png' : '/logo.png'" />
+  <img :src=" white ? '/logo-white.png' : '/logo.png'" alt="moviefinder logo" />
 </template>
 
 <script lang="ts">

@@ -18,7 +18,7 @@
         v-model="searchQuery"
         @input="debounceSearch"
       />
-      <button type="submit">
+      <button type="submit" aria-label="search button">
         <svg
           class="w-10 h-10 transform scale-75 text-dark-300"
           fill="none"

@@ -12,7 +12,7 @@
         class="ml-2 text-xl text-left text-white md:text-4xl md:text-center"
       >Popular Movies right now</h2>
 
-      <div class="flex flex-wrap w-full mt-6">
+      <div class="flex flex-wrap w-full mt-6" v-if="popularMovies">
         <nuxt-link
           :to="`/movie/${movie.id}`"
           class="w-1/2 px-1 mb-10 md:w-1/4 md:px-3"
@@ -21,6 +21,12 @@
         >
           <movie :movie="movie" />
         </nuxt-link>
+      </div>
+
+      <div class="flex flex-wrap w-full mt-6" v-else>
+        <div class="w-1/2 px-1 mb-10 md:w-1/4 md:px-3" v-for="i in 4" :key="i+'index'">
+          <movie-skeleton />
+        </div>
       </div>
     </div>
   </div>
