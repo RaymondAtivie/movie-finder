@@ -1,12 +1,22 @@
 <template>
   <div>
     <div
-      class="relative max-w-screen-xl mx-auto overflow-hidden w-ful bg-dark-100"
-      style="height: 500px"
+      class="absolute w-full max-w-screen-xl mx-auto overflow-hidden md:relative md:block bg-dark-100"
       v-if="movie"
     >
-      <img :src="movie.backdropUrl" v-if="movie.backdropUrl" class="object-cover w-full h-full" />
-      <div class="absolute inset-0 flex items-center justify-center w-full h-full">
+      <img
+        :src="movie.backdropUrl"
+        v-if="movie.backdropUrl"
+        class="hidden object-cover w-full md:block"
+        style="height: 500px"
+      />
+      <img
+        :src="movie.backdropUrl"
+        v-if="movie.backdropUrl"
+        class="block object-cover w-full md:hidden"
+        style="height: 200px"
+      />
+      <div class="absolute inset-0 items-center justify-center hidden w-full h-full md:flex">
         <div
           @click="playVideo()"
           class="flex items-center justify-center w-20 h-20 mx-auto bg-red-600 rounded-full cursor-pointer"
@@ -29,13 +39,13 @@
 
     <div class="relative flex flex-col items-center flex-1 w-full max-w-screen-lg mx-auto">
       <div class="flex flex-col items-center justify-between w-full px-4" v-if="movie">
-        <div class="flex items-start mx-10">
-          <div class="flex-shrink-0 w-1/3">
-            <img class="-mt-32 rounded-sm" :src="movie.posterUrl" />
+        <div class="flex flex-wrap items-start md:mx-10 md:flex-no-wrap">
+          <div class="flex-shrink-0 w-full px-10 md:w-1/3">
+            <img class="mt-8 rounded-sm md:-mt-32" :src="movie.posterUrl" />
           </div>
 
-          <div class="w-2/3 pt-8 pl-8">
-            <h1 class="text-3xl leading-none text-white">{{ movie.title}}</h1>
+          <div class="w-full pt-8 md:px-0 md:w-2/3 md:pl-8">
+            <h1 class="text-2xl leading-none text-white md:text-3xl">{{ movie.title}}</h1>
 
             <div class="flex mt-3 text-dark-100">
               <rating-stars :rating="movie.rating" />
@@ -47,10 +57,13 @@
 
             <div class="mt-6 text-dark-100">Casts</div>
 
-            <div class="flex mt-3">
-              <div class="w-20 mr-6 text-center" v-for="cast in casts" :key="cast.id">
+            <div class="flex flex-wrap mt-3 md:flex-no-wrap">
+              <div class="w-20 mb-6 mr-2 text-center md:mr-6" v-for="cast in casts" :key="cast.id">
                 <div class="relative w-16 h-16 mx-auto rounded-full bg-dark-300">
-                  <img :src="cast.pictureUrl" class="absolute object-cover w-full h-full rounded-full" />
+                  <img
+                    :src="cast.pictureUrl"
+                    class="absolute object-cover w-full h-full rounded-full"
+                  />
                 </div>
                 <div class="mt-3 text-xs leading-tight text-center text-white">{{ cast.name }}</div>
               </div>
