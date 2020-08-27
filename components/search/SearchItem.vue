@@ -1,6 +1,5 @@
 <template>
   <div
-    tabindex="0"
     class="flex items-center px-3 py-3 border-b border-dark-200 focus:outline-none focus:bg-dark-500 hover:bg-dark-500"
   >
     <div class="w-10 mr-3 overflow-hidden bg-black rounded-sm h-14">
@@ -16,7 +15,7 @@
       <rating-stars :rating="movie.rating" />
     </div>
 
-    <div class="text-gray-200">{{ movie.year }}</div>
+    <div class="text-dark-100">{{ movie.year }}</div>
   </div>
 </template>
 

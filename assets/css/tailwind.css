@@ -12,16 +12,16 @@
 body,
 body.dark {
   --white: #ffffff;
-  --black-500: #1c1c1c;
-  --black-300: #3f3f3f;
-  --black-200: #585858;
-  --black-100: #969696;
+  --dark-500: #1c1c1c;
+  --dark-300: #3f3f3f;
+  --dark-200: #585858;
+  --dark-100: #969696;
 }
 
 body.light {
   --white: #000000;
-  --black-500: #ffffff;
-  --black-300: #3f3f3f;
-  --black-200: #585858;
-  --black-100: #969696;
+  --dark-500: #ffffff;
+  --dark-300: #dedede;
+  --dark-200: #969696;
+  --dark-100: #585858;
 }

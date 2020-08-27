@@ -1,5 +1,5 @@
 <template>
-  <img :src=" mode != 'light' ? '/logo-white.png' : '/logo.png'" alt="moviefinder logo" />
+  <img :src="source" alt="moviefinder logo" />
 </template>
 
 <script lang="ts">
@@ -10,6 +10,16 @@ export default class Logo extends Vue {
 
   get mode() {
     return this.$store.getters['mode']
+  }
+
+  get source() {
+    if (this.white) return '/logo-white.png'
+
+    if (this.mode == 'light') {
+      return '/logo.png'
+    }
+
+    return '/logo-white.png'
   }
 }
 </script>

@@ -7,10 +7,10 @@ module.exports = {
       colors: {
         white: "var(--white)",
         dark: {
-          '100': "var(--black-100)",
-          '200': 'var(--black-200)',
-          '300': 'var(--black-300)',
-          '500': "var(--black-500)",
+          '100': "var(--dark-100)",
+          '200': 'var(--dark-200)',
+          '300': 'var(--dark-300)',
+          '500': "var(--dark-500)",
         }
       }
     }
